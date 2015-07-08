@@ -1,0 +1,19 @@
+<style type="text/css">
+form{
+	margin-top: 20px;
+	margin-left: 35px;
+   	margin-right: 35px;
+}
+
+</style>
+<h1 class="page-title">Create an event</h1>
+
+<%= form_for @event, html: {multipart: true} do |f| %>
+
+	<%= f.text_field :name, :placeholder => "Fourth of July Bonfire", size: 25 %> <br />
+	<%= f.text_field :address, :placeholder => "23 Townline Rd, East Hampton", size: 25 %> <br />
+	<%= f.text_area :description, :placeholder => "Let's celebrate America's birthday around a fire. There will be beer, marshmallows, and friends", rows: 3, cols: 27%> <br />
+	<%= f.datetime_select :date, start_year: 2015, ampm: true, :minute_step => 15, :class => 'dts'	 %> <br />
+	<%= f.submit "create", :class=>"btn btn-primary"%> <br />
+
+<% end %>

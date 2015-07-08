@@ -1,0 +1,9 @@
+<h1 class="page-title">My Tasks</h1>
+
+<% @tasks.each do |task| %>
+	
+	<h3> <%= link_to task.name, event_task_path(task.event, task)%>	</h3>
+	<p>	Due: <%= task.event.date.to_date.strftime("%B %d") %>	 @ <%= task.event.date.strftime("at %I:%M%p") %></p>
+
+
+<% end %>

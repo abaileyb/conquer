@@ -1,0 +1,17 @@
+<style type="text/css">
+	.buttons{
+		text-align: center;
+	}
+</style>
+
+<h1 class="page-title">All Events</h1>
+
+<h3 class="buttons"> <%= link_to 'New Event', new_event_path, :class=>"button small success" %> <%= link_to 'My Events', events_joined_path, :class=>"button small success" %> </h3>
+
+<% @events.each do |event| %>
+	
+	<h3> <%= link_to event.name, event_path(event), 'data-no-turbolink' => true %>	</h3>
+	<p>	<%= event.date.to_date.strftime("%B %d") %>	 @ <%= event.date.strftime("at %I:%M%p") %></p>
+
+
+<% end %>

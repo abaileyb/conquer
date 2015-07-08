@@ -1,0 +1,21 @@
+<style type="text/css">
+body{
+   margin-left: 35px;
+   margin-right: 35px;
+}
+</style>
+<h1 class="page-title">add a task to <%= @event.name %> </h1>
+
+<div class='form'>≈
+<%= form_for [@event, @task] do |f| %>
+	<div class="field">
+	<%= f.text_field :name, :placeholder => "Task Name", size: 25 %> <br />
+	</div>
+	<div class="field">
+	<%= f.text_area :description, :placeholder => "Short Description", rows: 3, cols: 27%> <br />
+	</div>
+	<div class="field">
+	<%= f.submit "create", :class=>"btn btn-primary"%> <br />
+	</div>
+<% end %>
+</div>

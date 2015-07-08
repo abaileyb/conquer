@@ -1,0 +1,45 @@
+<style type="text/css">
+.icon-bar{
+  margin-bottom: 0px;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+</style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+
+	
+    <%= yield %>
+
+		<br />
+		<br />
+		<br />
+  </body>
+
+<% if user_signed_in? %>
+	<div class="icon-bar three-up menu">
+	<%= link_to '<i class="fi-calendar"></i>'.html_safe, events_joined_path, class: "item"%>
+  	<%= link_to '<i class="fi-list-thumbnails"></i> '.html_safe, user_tasks_path(current_user), class: "item"%>
+  	<%= link_to '<i class="fi-torso"></i>'.html_safe, root_path, class: "item"%>
+  </div>
+<% end %>
+</html>

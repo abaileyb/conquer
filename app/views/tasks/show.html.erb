@@ -1,0 +1,19 @@
+<h1 class="page-title"> <%= @task.name %> </h1>
+
+<h4> <%= @task.description %> </h4>
+
+<% if (@task.user == nil) %>
+	<%= link_to "Pickup Task", add_task_task_path(task: @task, user_id: current_user.id), method: :put %>
+<% else %>
+	<p> 
+	<% if @task.completed %> 
+	Completed
+	<%else %>
+	Accepted
+	<%end %>
+	by: <%= @task.user.first_name %> <%= @task.user.last_name %></p>
+<% end %>
+
+<% if (!@task.completed && @task.user == current_user) %> 
+<%= link_to "Complete Task", complete_task_task_path(task: @task), method: :put %>
+<% end %>
